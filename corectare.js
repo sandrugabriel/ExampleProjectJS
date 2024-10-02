@@ -49,32 +49,41 @@ ul.addEventListener("click",(e)=>{
 
 
     if(elem.classList.contains("up")){
-
-        // console.log(elem.parentNode);
-
-        let select = elem.parentElement;
-        let n1 = select.previousElementSibling;
-        
-        if(n1!=null)
-        select.parentElement.insertBefore(select,n1);
+        up(elem);
     }
     else if(elem.classList.contains("down")){
-
-        let select = elem.parentElement;
-        let n1 = select.nextElementSibling;
-
-        if(n1!=null)
-        select.parentElement.insertBefore(n1,select);
+        down(elem);
     }else if(elem.classList.contains("remove")){
-        let select = elem.parentElement;
-        select.style.display = "none";
+        remove(elem);
     }
 
 
 })
 
+const up = function(elem){
 
+    
+    let select = elem.parentElement;
+    let n1 = select.previousElementSibling;
+    
+    if(n1!=null)
+    select.parentElement.insertBefore(select,n1);
 
+};
+
+const down = function(elem){
+
+    let select = elem.parentElement;
+    let n1 = select.nextElementSibling;
+
+    if(n1!=null)
+    select.parentElement.insertBefore(n1,select);
+}
+
+const remove = function(elem){
+    let select = elem.parentElement;
+    select.style.display = "none";
+}
 
 
 
